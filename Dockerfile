@@ -9,10 +9,8 @@ COPY pom.xml ./
 # Copy local code to the container image.
 COPY src ./src
 
-COPY settings.xml ./
-
 # Download dependencies and build a release artifact.
-RUN mvn -s settings.xml package -DskipTests
+RUN mvn package -DskipTests
 
 # Use OpenJDK for base image.
 # https://hub.docker.com/_/openjdk
